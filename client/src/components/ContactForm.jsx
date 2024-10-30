@@ -1,51 +1,57 @@
-import { useState } from "react"
+import React from "react"
 import axios from "axios"
+import { Formik, Form, Field } from "formik"
 
-function ContactForm() {
-  const [email, setEmail] = useState()
-  const [subject, setSubject] = useState()
-  const [message, setMessage] = useState()
-
-  const sendMail = () => {
+function TestContact() {
+  const sendMail = (values, { resetForm }) => {
     axios
       .get("http://localhost:5000/", {
         params: {
-          email,
-          subject,
-          message,
+          email: values.email,
+          subject: values.subject,
+          message: values.message,
         },
       })
       .then(() => {
-        //success
-        console.log("success")
+        // success
+        console.log("Email sent successfully")
+        resetForm()
       })
       .catch(() => {
-        console.log("failure")
+        console.log("Failed to send email")
       })
   }
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Sender Email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <br />
-      <input
-        type="text"
-        placeholder="Subject"
-        onChange={(e) => setSubject(e.target.value)}
-      />
-      <br />
-      <textarea
-        placeholder="Message"
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <br />
-      <button onClick={sendMail}>Send Email</button>
+      <Formik
+        initialValues={{ email: "", subject: "", message: "" }}
+        onSubmit={sendMail}
+      >
+        {() => (
+          <Form>
+            <Field
+              type="text"
+              name="email"
+              placeholder="Sender Email"
+              required
+            />
+
+            <Field type="text" name="subject" placeholder="Subject" required />
+
+            <Field
+              as="textarea"
+              name="message"
+              placeholder="Message"
+              required
+            />
+
+            <button type="submit">Send Email</button>
+          </Form>
+        )}
+      </Formik>
     </div>
   )
 }
 
-export default ContactForm
+export default TestContact
