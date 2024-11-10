@@ -1,0 +1,14 @@
+/* src/components/Header.module.css */
+@import "../style/style.css";
+
+.header {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family-primary);
+  position: fixed;
+  z-index: 10;
+}
+
+.logoWrapper {
+  color: #333;
+}

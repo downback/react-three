@@ -2,11 +2,10 @@
 
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import LandingPage from "./pages/LandingPage"
-import BookingPage from "./pages/BookingPage"
-import DrawingPage from "./pages/DrawingPage"
-import GalleryPage from "./pages/GalleryPage"
-import Wrapper from "./components/Wrapper"
+import LandingPage from "./sections/LandingPage"
+import ContactSection from "./sections/ContactSection"
+import ProjectSection from "./sections/ProjectSection"
+import Wrapper from "./ui/Wrapper"
 
 function App() {
   return (
@@ -17,12 +16,11 @@ function App() {
           path="/booking"
           element={
             <Wrapper>
-              <BookingPage />
+              <ContactSection />
             </Wrapper>
           }
         />
-        <Route path="/drawing" element={<DrawingPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/drawing" element={<ProjectSection />} />
       </Routes>
     </Router>
   )

@@ -9,6 +9,20 @@ const ThreeD = ({ scrollProgress }) => {
   const { scene } = useGLTF("/nami.gltf") // Use the new GLTF path
   const modelRef = useRef()
 
+  const { camera } = useThree() // Access the camera from @react-three/fiber
+
+  // Use useFrame hook to update the camera position every frame based on scrollProgress
+  useFrame(() => {
+    if (modelRef.current) {
+      // Move the camera along the Z-axis (you can change this to X/Y if needed)
+      camera.position.lerp(
+        new THREE.Vector3(0, 0, 5 - scrollProgress * 3), // Move the camera closer/further
+        0.1 // Smoothness of the camera movement
+      )
+      camera.lookAt(modelRef.current.position) // Keep the camera looking at the model
+    }
+  })
+
   return (
     <Canvas
       style={{ height: "100vh", width: "100vw" }}
