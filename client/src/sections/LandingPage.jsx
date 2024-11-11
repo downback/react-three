@@ -6,7 +6,7 @@ import ProjectSection from "./ProjectSection"
 import Sidebar from "../components/Sidebar"
 import Header from "../components/Header"
 import IntroductionSection from "./IntroductionSection"
-import Test from "../components/Test"
+
 import { Canvas } from "@react-three/fiber"
 
 const LandingPage = () => {
@@ -17,9 +17,6 @@ const LandingPage = () => {
       {/* <section id="section1">Introduction Section</section> */}
 
       <IntroductionSection />
-      {/* <Canvas style={{ height: "100vh", width: "100vw" }}>
-        <Test />
-      </Canvas> */}
 
       <ProjectSection />
 

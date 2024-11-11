@@ -7,8 +7,11 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 gsap.registerPlugin(useGSAP)
 
-import ThreeD from "../components/ThreeD"
 import styles from "./IntroductionSection.module.css"
+
+import Model from "../components/Model"
+import ProjectSection from "./ProjectSection"
+import ContactSection from "./ContactSection"
 
 function IntroductionSection() {
   const introContainer = useRef()
@@ -47,10 +50,18 @@ function IntroductionSection() {
     >
       <div className={styles.textContainer} ref={textAnimation}>
         <p>hi</p>
-        <h1>I'm Daeun</h1>
-        <p>Frontend Developer</p>
+        <h1>Nami</h1>
+        <p>booking page</p>
       </div>
-      <ThreeD />
+      <div className={styles.container}>
+        <Model />
+      </div>
+      <div id="sec1" style={{ height: "100vh", color: "white" }}>
+        section2
+      </div>
+      <div id="sec2" style={{ height: "100vh", color: "white" }}>
+        section3
+      </div>
     </section>
   )
 }

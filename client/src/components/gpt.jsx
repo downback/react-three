@@ -1,39 +1,136 @@
-import React, { useRef } from "react"
-import { Canvas, useThree, useFrame } from "@react-three/fiber"
-import { useGLTF } from "@react-three/drei"
-import * as THREE from "three" // Import THREE from the three.js library
+import { CameraControls, Plane, useGLTF, useScroll } from "@react-three/drei"
+import React, {
+  forwardRef,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react"
 
-import "./threeD.css"
+import { useControls } from "leva"
+import { useThree } from "@react-three/fiber"
 
-const ThreeD = ({ scrollProgress }) => {
-  const { scene } = useGLTF("/nami.gltf") // Use the new GLTF path
-  const modelRef = useRef()
+import { gsap } from "gsap"
 
-  const { camera } = useThree() // Access the camera from @react-three/fiber
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
-  // Use useFrame hook to update the camera position every frame based on scrollProgress
-  useFrame(() => {
-    if (modelRef.current) {
-      // Move the camera along the Z-axis (you can change this to X/Y if needed)
-      camera.position.lerp(
-        new THREE.Vector3(0, 0, 5 - scrollProgress * 3), // Move the camera closer/further
-        0.1 // Smoothness of the camera movement
-      )
-      camera.lookAt(modelRef.current.position) // Keep the camera looking at the model
-    }
-  })
+// Source : https://sketchfab.com/3d-models/air-jordan-1-a4b434181fbb48008ad460722fd53725
+export const Jordan = ({ ...props }) => {
+  const { nodes, materials } = useGLTF("/air_jordan_1.glb")
+  const jordans = useRef(null)
+
+  const { scene, camera } = useThree()
+  const tl = gsap.timeline()
+
+  useLayoutEffect(() => {
+    new ScrollTrigger({})
+    // component About.tsx
+    tl.to(camera.position, {
+      x: 5,
+      y: 4.0,
+      z: 2.8,
+      scrollTrigger: {
+        trigger: ".second-section",
+        start: "top bottom",
+        end: "top top",
+        scrub: true,
+        immediateRender: false,
+      },
+    })
+      .to(scene.position, {
+        x: 3.01,
+        y: 0.76,
+        z: 3.7,
+        scrollTrigger: {
+          trigger: ".second-section",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(scene.rotation, {
+        x: -0.53,
+        y: -3.48,
+        z: -0.21,
+        scrollTrigger: {
+          trigger: ".second-section",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      // component - BuyNow.tsx
+      .to(camera.position, {
+        x: 5,
+        y: 3.8,
+        z: 2.8,
+        scrollTrigger: {
+          trigger: ".third-section",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+      .to(scene.position, {
+        x: 2.31,
+        y: 0.01,
+        z: -0.7,
+        scrollTrigger: {
+          trigger: ".third-section",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+      .to(scene.rotation, {
+        x: 0.67,
+        y: -12.9,
+        z: 0.79,
+        scrollTrigger: {
+          trigger: ".third-section",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+  }, [])
 
   return (
-    <Canvas
-      style={{ height: "100vh", width: "100vw" }}
-      camera={{ position: [0, 0, 5], fov: 75 }}
-      shadows
-    >
+    <>
+      <directionalLight
+        castShadow
+        position={[-2.38, 1.32, 0.74]}
+        intensity={5}
+      />
       <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 10]} intensity={1} castShadow />
-      <primitive ref={modelRef} object={scene} scale={0.6} />
-    </Canvas>
+      <group
+        ref={jordans}
+        position={[2, 1, -1]}
+        castShadow
+        scale={10}
+        rotation-x={[-Math.PI * 0.5]}
+        {...props}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.shoe_shoe_0.geometry}
+          material={materials.shoe}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.shoelace_shoelace_0.geometry}
+          material={materials.shoelace}
+        />
+      </group>
+    </>
   )
 }
-
-export default ThreeD
