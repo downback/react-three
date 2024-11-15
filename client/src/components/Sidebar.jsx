@@ -19,7 +19,7 @@ function Sidebar() {
       const sidebarAnimation = gsap.timeline({
         scrollTrigger: {
           start: "top -500",
-          end: "max",
+          end: "bottom 500",
           scrub: true,
           id: "sidebar",
           markers: true,
@@ -81,17 +81,20 @@ function Sidebar() {
           </a>
         </li>
         <li>
-          <a href="#horizontal" ref={(el) => (linksRef.current[1] = el)}>
+          <a href="#animationTrigger1" ref={(el) => (linksRef.current[1] = el)}>
             s2
           </a>
         </li>
         <li>
-          <a href="#horizontal" ref={(el) => (linksRef.current[2] = el)}>
+          <a
+            href="#horizontal-section1"
+            ref={(el) => (linksRef.current[2] = el)}
+          >
             s3
           </a>
         </li>
         <li>
-          <a href="#section8" ref={(el) => (linksRef.current[3] = el)}>
+          <a href="#contact-section" ref={(el) => (linksRef.current[3] = el)}>
             s4
           </a>
         </li>

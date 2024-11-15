@@ -7,3 +7,5 @@ export const Loading = () => {
     </Html>
   )
 }
+
+// TODO : custom loading animation
