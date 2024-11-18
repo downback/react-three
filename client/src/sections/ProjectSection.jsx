@@ -11,6 +11,11 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 const ProjectSection = () => {
   const horizontal = useRef(null)
   const sectionsRef = useRef([])
+  const slide1 = useRef()
+  const slide2 = useRef()
+  const slide3 = useRef()
+  const slide4 = useRef()
+  const slide5 = useRef()
 
   useGSAP(() => {
     const sections = gsap.utils.toArray(sectionsRef.current)
@@ -34,6 +39,46 @@ const ProjectSection = () => {
         anticipatePin: 1,
       },
     })
+
+    slide1.current.addEventListener("click", () => {
+      gsap.to(sectionsRef.current, {
+        xPercent: 0,
+        duration: 1,
+        scrollTo: { autoKill: false },
+      })
+    })
+
+    slide2.current.addEventListener("click", () => {
+      gsap.to(sectionsRef.current, {
+        xPercent: -100,
+        duration: 1,
+        scrollTo: { autoKill: false },
+      })
+    })
+
+    slide3.current.addEventListener("click", () => {
+      gsap.to(sectionsRef.current, {
+        xPercent: -200,
+        duration: 1,
+        scrollTo: { autoKill: false },
+      })
+    })
+
+    slide4.current.addEventListener("click", () => {
+      gsap.to(sectionsRef.current, {
+        xPercent: -300,
+        duration: 1,
+        scrollTo: { autoKill: false },
+      })
+    })
+
+    slide5.current.addEventListener("click", () => {
+      gsap.to(sectionsRef.current, {
+        xPercent: -400,
+        duration: 1,
+        scrollTo: { autoKill: false },
+      })
+    })
   }, [])
 
   return (
@@ -41,7 +86,25 @@ const ProjectSection = () => {
       {/* <div className={styles.fixedText} ref={fixedText}>
         hihi
       </div> */}
+
       <main id="project-section" className={styles.horizontal} ref={horizontal}>
+        <ul className={styles.sliderWrapper}>
+          <li className={styles.sliderIcon}>
+            <div ref={slide1}>a</div>
+          </li>
+          <li className={styles.sliderIcon}>
+            <div ref={slide2}>b</div>
+          </li>
+          <li className={styles.sliderIcon}>
+            <div ref={slide3}>c</div>
+          </li>
+          <li className={styles.sliderIcon}>
+            <div ref={slide4}>d</div>
+          </li>
+          <li className={styles.sliderIcon}>
+            <div ref={slide5}>e</div>
+          </li>
+        </ul>
         <section
           id="horizontal-section1"
           className={styles.parallaxItem}

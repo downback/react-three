@@ -1,15 +1,3 @@
-.fixedText {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
 .horizontal {
   display: flex; /* Flexbox for horizontal scrolling */
   flex-direction: row; /* Lay out sections side-by-side */
@@ -61,4 +49,30 @@
 .parallaxItem:hover .img {
   transform: scale(1.1); /* Example: Zoom effect on hover */
   transition: transform 0.5s ease;
+}
+
+.sliderWrapper {
+  position: absolute;
+
+  bottom: 10%;
+  left: 5%;
+  width: 10%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10; /* Ensure buttons are above the sections */
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrowButton:hover {
+  opacity: 1; /* Make buttons more visible on hover */
+}
+
+.sliderIcon {
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
 }
