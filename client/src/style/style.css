@@ -15,11 +15,14 @@
 
 /* Color variables */
 :root {
-  --primary-color: #3498db; /* Example primary color */
-  --secondary-color: #2ecc71; /* Example secondary color */
-  --accent-color: #e74c3c; /* Example accent color */
-  --background-color: #f4f4f4; /* Light background color */
-  --text-color: #333333; /* Default text color */
+  --bg-color-lightblue: #a1c4f3;
+  --bg-color-lightpurple: #b7add2;
+  --accent-color-purple: #493a66;
+  --accent-color-green: #6a7940;
+  --accent-color-blue: #7180a9;
+  --accent-color-white: #f5f3f7;
+  --text-color: #333333;
+
   --font-family-primary: "Paperlogy", sans-serif;
   --font-family-secondary: "Anthony", sans-serif;
   --font-family-tertiary: "PicNic", sans-serif;

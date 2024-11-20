@@ -22,7 +22,7 @@ function Sidebar() {
           end: "bottom 500",
           scrub: true,
           id: "sidebar",
-          markers: true,
+          markers: false,
           toggleClass: {
             targets: sidebar.current,
             className: "is-active",
@@ -65,7 +65,7 @@ function Sidebar() {
         })
       })
     },
-    { scope: sidebarContainer }
+    { sidebarContainer }
   )
 
   return (

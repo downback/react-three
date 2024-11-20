@@ -6,7 +6,7 @@ function Header() {
     <div className={styles.header}>
       <div className={styles.logoWrapper}>
         <img src="" alt="" />
-        <p>here will be the logo</p>
+        <div className={styles.logoTest}>logo test</div>
       </div>
     </div>
   )

@@ -33,9 +33,9 @@ const Model = () => {
         enableZoom={false}
       />
       <Suspense fallback={<Loading />}>
-        <Logo scale={10} />
+        <Logo scale={0.1} />
       </Suspense>
-      <Environment preset="sunset" />
+      <Environment preset="warehouse" />
     </Canvas>
   )
 }

@@ -2,13 +2,22 @@
 @import "../style/style.css";
 
 .header {
-  background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--font-family-primary);
   position: fixed;
   z-index: 10;
+  margin: 0;
 }
 
 .logoWrapper {
   color: #333;
+}
+
+.logoTest {
+  width: 200px;
+  height: 70px;
+  background-color: var(--accent-color-green);
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+  /* box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5); */
 }

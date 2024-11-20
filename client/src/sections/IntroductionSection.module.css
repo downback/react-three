@@ -2,17 +2,101 @@
 @import "../style/style.css";
 
 .backgroundColor {
-  background-color: black;
+  /* background: linear-gradient(
+    90deg,
+    rgba(183, 173, 210, 1) 0%,
+    rgba(161, 196, 243, 1) 100%
+  ); */
+  background-color: var(--accent-color-white);
   width: 100vw;
   height: 300vh;
   position: absolute;
   z-index: -10;
   top: 0;
   left: 0;
+  /* filter: url("#gooey"); */
+}
+
+.drawing {
+}
+
+.drawingSvg {
+  filter: url("#gooey");
+  width: 100%;
+  position: absolute;
+  /* mix-blend-mode: hard-light; */
+
+  /* height: 100%; */
+}
+
+.circle {
+  position: fixed;
+  top: 500px;
+  mix-blend-mode: multiply;
+}
+
+/* mix-blend-mode: normal;
+mix-blend-mode: multiply; o
+mix-blend-mode: screen;
+mix-blend-mode: overlay;
+mix-blend-mode: darken;
+mix-blend-mode: lighten;
+mix-blend-mode: color-dodge;
+mix-blend-mode: color-burn; o
+mix-blend-mode: hard-light;
+mix-blend-mode: soft-light;
+mix-blend-mode: difference;
+mix-blend-mode: exclusion;
+mix-blend-mode: hue;
+mix-blend-mode: saturation;
+mix-blend-mode: color;
+mix-blend-mode: luminosity;
+mix-blend-mode: plus-darker;
+mix-blend-mode: plus-lighter; */
+
+.drawingPath {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: dash 3s ease-in-out forwards;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.downArrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2rem;
+  width: 100px;
+  height: 100px;
+
+  background: url("../asset/down-arrow.png") no-repeat center;
+  background-size: cover;
+
+  animation: upAndDown 1s infinite 2s;
+}
+
+@keyframes upAndDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .introSection {
-  color: gray;
+  color: var(--text-color);
   font-family: var(--font-family-primary);
   width: 100vw;
   z-index: 10;
@@ -28,7 +112,6 @@
 
 .text {
   position: absolute;
-  font-size: 3rem;
   text-align: center;
 }
 
@@ -36,16 +119,20 @@
   top: 50%;
   left: 20%;
   transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 2rem;
 }
 
 .text2 {
   top: 30%;
   left: 60%;
   transform: translate(-50%, -50%);
+  font-size: 2rem;
 }
 
 .text3 {
-  top: 80%;
+  top: 45%;
   left: 40%;
   transform: translate(-50%, -50%);
+  font-size: 1.5rem;
 }

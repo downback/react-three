@@ -111,9 +111,8 @@ const ProjectSection = () => {
           ref={(el) => (sectionsRef.current[0] = el)}
         >
           <span className={styles.itemNum}>01</span>
-          <figure className={styles.imgWrap}>
-            <div className={styles.img}></div>
-          </figure>
+
+          <div className={styles.img}></div>
         </section>
 
         <section
@@ -122,9 +121,8 @@ const ProjectSection = () => {
           ref={(el) => (sectionsRef.current[1] = el)}
         >
           <span className={styles.itemNum}>02</span>
-          <figure className={styles.imgWrap}>
-            <div className={styles.img}></div>
-          </figure>
+
+          <div className={styles.img}></div>
         </section>
 
         <section
@@ -133,9 +131,8 @@ const ProjectSection = () => {
           ref={(el) => (sectionsRef.current[2] = el)}
         >
           <span className={styles.itemNum}>03</span>
-          <figure className={styles.imgWrap}>
-            <div className={styles.img}></div>
-          </figure>
+
+          <div className={styles.img}></div>
         </section>
 
         <section
@@ -144,9 +141,8 @@ const ProjectSection = () => {
           ref={(el) => (sectionsRef.current[3] = el)}
         >
           <span className={styles.itemNum}>04</span>
-          <figure className={styles.imgWrap}>
-            <div className={styles.img}></div>
-          </figure>
+
+          <div className={styles.img}></div>
         </section>
 
         <section
@@ -155,9 +151,8 @@ const ProjectSection = () => {
           ref={(el) => (sectionsRef.current[4] = el)}
         >
           <span className={styles.itemNum}>05</span>
-          <figure className={styles.imgWrap}>
-            <div className={styles.img}></div>
-          </figure>
+
+          <div className={styles.img}></div>
         </section>
       </main>
     </>

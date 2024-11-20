@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 gsap.registerPlugin(useGSAP)
 
 export function Logo(props) {
-  const { nodes, materials } = useGLTF("/nami.gltf")
+  const { nodes, materials } = useGLTF("/model.glb")
   const logo = useRef()
   const { scene, camera } = useThree()
   const tl = gsap.timeline()
@@ -80,7 +80,7 @@ export function Logo(props) {
         start: "top bottom",
         end: "bottom bottom",
         scrub: true,
-        markers: true,
+        markers: false,
         id: "trigger1",
 
         immediateRender: false,
@@ -112,7 +112,7 @@ export function Logo(props) {
           start: "top bottom",
           end: "bottom bottom",
           scrub: true,
-          markers: true,
+          markers: false,
           id: "trigger2",
           immediateRender: false,
         },
@@ -127,7 +127,7 @@ export function Logo(props) {
           start: "top bottom",
           end: "bottom bottom",
           scrub: true,
-          markers: true,
+          markers: false,
           id: "trigger2",
           immediateRender: false,
         },
@@ -140,40 +140,11 @@ export function Logo(props) {
       dispose={null}
       ref={logo}
       position={[0, 0, -2.6]}
-      rotation={[0, 0, 0]}
+      rotation={[90, 0, 0]}
     >
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.mesh_0.geometry}
-        material={nodes.mesh_0.material}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.mesh_1.geometry}
-        material={nodes.mesh_1.material}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.mesh_2.geometry}
-        material={nodes.mesh_2.material}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.mesh_3.geometry}
-        material={nodes.mesh_3.material}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.mesh_4.geometry}
-        material={nodes.mesh_4.material}
-      />
+      <mesh geometry={nodes.Asset_3.geometry} material={materials.Matalic} />
     </group>
   )
 }
 
-useGLTF.preload("/nami.gltf")
+useGLTF.preload("/model.glb")
